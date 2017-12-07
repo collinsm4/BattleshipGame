@@ -1,7 +1,5 @@
 package battleship;
 
-import javafx.scene.Parent;
-
 /**
  * Ship object representing a Cell
  * on a Board. Has unique length and 
@@ -12,7 +10,7 @@ import javafx.scene.Parent;
  * @author Matthew Collins
  * @author Jay Jay Jacelli
  */
-public class Ship extends Parent {
+public class Ship  {
     
 	/**
      * Amount of spaces occupied on Board.

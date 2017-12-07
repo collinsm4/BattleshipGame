@@ -44,7 +44,7 @@ public class Cell extends Rectangle {
      * @param y y coodinate
      * @param board Board that the cell is associated with
      */
-     public Cell(int x, int y, Board board) {
+	public Cell(int x, int y, Board board) {
     	 super(30, 30);
          this.x = x;
          this.y = y;

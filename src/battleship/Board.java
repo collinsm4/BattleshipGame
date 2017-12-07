@@ -113,16 +113,16 @@ public class Board extends Parent {
      * @return ArrayList of valid surrounding Cells 
      */
     private Cell[] getAdjacent(int x, int y) {
-        Point2D[] points = new Point2D[] {
+        Point2D[] adjacentCoordinates = new Point2D[] {
                 new Point2D(x - 1, y),
                 new Point2D(x + 1, y),
                 new Point2D(x, y - 1),
                 new Point2D(x, y + 1)
         };
         ArrayList<Cell> adjacentCells = new ArrayList<Cell>();
-        for (Point2D p : points) {
-        	if (validCoordinates(p.getX(),p.getY())) {
-        		adjacentCells.add(getCell((int)p.getX(), (int)p.getY()));
+        for (Point2D coordinate : adjacentCoordinates) {
+        	if (validCoordinates(coordinate.getX(),coordinate.getY())) {
+        		adjacentCells.add(getCell((int)coordinate.getX(), (int)coordinate.getY()));
             }
         }
         adjacentCells.trimToSize();
@@ -147,8 +147,8 @@ public class Board extends Parent {
                 if (!validCoordinates(x, i)) {
                     return false;
                 }
-                Cell cell = getCell(x, i);
-                if (cell.ship != null) {
+                Cell potentialCell = getCell(x, i);
+                if (potentialCell.ship != null) {
                     return false;
                 }
                 for (Cell adjacent : getAdjacent(x, i)) {
@@ -166,8 +166,8 @@ public class Board extends Parent {
                 if (!validCoordinates(i, y)) {
                     return false;
                 }
-                Cell cell = getCell(i, y);
-                if (cell.ship != null) {
+                Cell potentialCell = getCell(i, y);
+                if (potentialCell.ship != null) {
                     return false;
             	}
                 for (Cell adjacent : getAdjacent(i, y)) {
