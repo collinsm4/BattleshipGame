@@ -1,4 +1,5 @@
 package battleship;
+
 import java.io.File;
 import java.util.Random;
 
@@ -16,7 +17,7 @@ import javafx.stage.Stage;
 
 /**
  * Main game class. Implements JavaFX
- * application with two event-driven Boards.
+ * Application with two event-driven Boards.
  * Mouse events determine player shots while
  * also triggering computer to pick random
  * coordinates to shoot player Board.
@@ -29,8 +30,8 @@ public class GameMain extends Application {
     
 	/**
      * Signifies whether game has begun.
-     * false if Boards being setup.
-     * true otherwise.
+     * false if Boards are still being
+     * setup, true otherwise.
      */
 	private boolean hasStarted = false;
 	
@@ -46,7 +47,7 @@ public class GameMain extends Application {
     private int shipsLeft = 5;
     
     /**
-     * Determines whether it is 
+     * Signifies whether it is 
      * computer's turn to make a move.
      */
     private boolean enemyMove = false;
@@ -57,6 +58,14 @@ public class GameMain extends Application {
      */
     private Random random = new Random();
 
+    /**
+     * Sets the Scene with two event driven Boards.
+     * Player Board uses mouse events to setup ships.
+     * Opponent Board uses mouse events to shoot coordinates.
+     * Produces winning screen if opponent Board reaches zero.
+     * 
+     * @return VBox containing two player boards, both labeled
+     */
     private VBox createBoards() {
     	playerBoard = new Board(false, e -> {
         	if(!hasStarted) {            
@@ -109,6 +118,13 @@ public class GameMain extends Application {
         return game;
     }
 
+    /**
+     * Randomly generates coordinates for computer
+     * to shoot at. Validates Cell has not already
+     * been hit, continues until finds un-hit Cell.
+     * Produces losing screen if player board's ships
+     * reach zero. 
+     */
     private void enemyShoot() {
     	while (enemyMove) {
             int x = random.nextInt(10);
@@ -159,8 +175,8 @@ public class GameMain extends Application {
     }
 
     /**
-     * Start method initiates primary stage
-     * with scene of two Boards stacked vertically.
+     * Start method initiates primary Stage
+     * with Scene of two Boards stacked vertically.
      */
     @Override
     public void start(Stage primaryStage) throws Exception {

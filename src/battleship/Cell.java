@@ -8,6 +8,9 @@ import javafx.scene.shape.Rectangle;
  * on a supplied Board. Contains unique
  * x and y coordinates. Can contain ship
  * and can be shot.
+ * 
+ * @author Matthew Collins
+ * @author Jay Jay Jacelli
  */
 public class Cell extends Rectangle {
     
@@ -22,7 +25,7 @@ public class Cell extends Rectangle {
 	public boolean wasShot = false;
         
 	/**
-	 * Ship field may either contain ship or remain null
+	 * Ship field may either contain a Ship or remain null
 	 */
 	public Ship ship = null;
     
@@ -33,7 +36,7 @@ public class Cell extends Rectangle {
 
 	/**
 	 * Constructor to create Cell object.
-	 * Sets x and y coordinates and establish
+	 * Sets x and y coordinates and establishes
 	 * associated Board. Colors Cell with 
      * light blue fill and black outline.   
      * 
@@ -53,7 +56,7 @@ public class Cell extends Rectangle {
      /**
       * Shoots Cell, changes state to shot.
       * Recolors Cell to either red, if hit,
-      * or black if miss. Removes hit ship
+      * or black if miss. Removes hit Ship
       * from Board if life is zero.
       * 
       * @return true if hit, false if miss

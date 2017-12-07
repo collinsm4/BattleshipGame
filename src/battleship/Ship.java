@@ -6,8 +6,11 @@ import javafx.scene.Parent;
  * Ship object representing a Cell
  * on a Board. Has unique length and 
  * orientation, either vertical or
- * horizontal. Life as long as its
+ * horizontal. Life is as long as its
  * amount of occupied spaces on Board.
+ * 
+ * @author Matthew Collins
+ * @author Jay Jay Jacelli
  */
 public class Ship extends Parent {
     
